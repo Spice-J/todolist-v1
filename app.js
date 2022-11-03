@@ -1,12 +1,20 @@
 //jshint esversion:6
 
 const express = require("express");
-const bodyParser = require("body-parser");
 
 const app = express();
 
 app.get("/", function(req, res) {
-    res.send("hello");
+
+    var today = new Date();
+    var currentDay = today.getDay();
+
+    if (currentDay === 6 || currentDay === 0) {
+        res.write("<h1>Yay it's the weekend!</h1>");
+    } else {
+        res.sendFile(__dirname + "/index.html");
+    }
+
 });
 
 
