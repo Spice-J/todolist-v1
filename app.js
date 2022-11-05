@@ -10,24 +10,24 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({extended: true}));
 
-var items = [];
+let items = ["buy food", "cook food", "eat food"];
 
 app.get("/", function (req, res) {
-  var currentDay = new Date();
+  let currentDay = new Date();
 
-  var options = {
+  let options = {
     weekday: 'long',
     day: "numeric",
     month: "long"
   };
 
-  var day = currentDay.toLocaleString("en-US", options);
+  let day = currentDay.toLocaleString("en-US", options);
 
   res.render("list", { kindOfDay: day, newListItem: items });
 });
 
 app.post("/", function(req, res) {
-   var item = req.body.newItem;
+   let item = req.body.newItem;
 
    items.push(item);
 
