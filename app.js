@@ -18,7 +18,7 @@ const workItems = [];
 
 app.get("/", function (req, res) {
 
-  const day = date.getDate();
+  const day = date.getDay();
 
   res.render("list", { listTitle: day, newListItems: items });
 
