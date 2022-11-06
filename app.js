@@ -52,6 +52,8 @@ app.post("/work", function(req, res) {
   req.redirect("/work");
 });
 
-app.listen(3000, function (req, res) {
-  console.log("Server started on port 3000.");
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function (req, res) {
+  console.log("Server started on " + PORT);
 });
